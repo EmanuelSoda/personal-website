@@ -8,8 +8,8 @@ const pubs = [
     title: 'Hundreds of cardiac MRI traits derived using 3D diffusion autoencoders share a common genetic architecture.',
     authors: 'Sara Ometto, Soumick Chatterjee, …, Emanuel M. Soda, …, Craig A. Glastonbury',
     journal: 'Nature Communications',
-    doi: '#',
-    pdf: '#',
+    doi: 'https://doi.org/10.1038/s41467-025-56921-7',
+    pdf: null,
   },
   {
     year: 2024,
@@ -17,8 +17,8 @@ const pubs = [
     title: 'Automated workflow for the cell cycle analysis of (non-)adherent cells using a machine learning approach.',
     authors: 'Kourosh Hayatigolkhatmi*, Chiara Soriani*, Emanuel M. Soda* et al.',
     journal: 'eLife',
-    doi: '#',
-    pdf: '#',
+    doi: 'https://doi.org/10.7554/eLife.94830',
+    pdf: 'https://elifesciences.org/articles/94830',
     note: '* co-first authors',
   },
 ];
@@ -35,9 +35,9 @@ const years = [...new Set(pubs.map(p => p.year))].sort((a, b) => b - a);
         * denotes co-first authorship.
       </p>
       <div class="pub-links-bar mt-3">
-        <a href="https://scholar.google.com/citations?user=EmanuelSoda" class="ext-link" target="_blank" rel="noopener">Google Scholar ↗</a>
-        <a href="https://orcid.org/0000-0000-0000-0000" class="ext-link" target="_blank" rel="noopener">ORCID ↗</a>
-        <a href="https://pubmed.ncbi.nlm.nih.gov/?term=soda+EM" class="ext-link" target="_blank" rel="noopener">PubMed ↗</a>
+        <a href="https://scholar.google.com/scholar?q=Emanuel+Soda+computational+biology" class="ext-link" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/?term=soda+EM%5BAuthor%5D" class="ext-link" target="_blank" rel="noopener">PubMed ↗</a>
+        <a href="https://github.com/EmanuelSoda" class="ext-link" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
 
       {years.map(year => (
@@ -54,8 +54,8 @@ const years = [...new Set(pubs.map(p => p.year))].sort((a, b) => b - a);
                   <p class="pub-authors mt-1">{pub.authors}</p>
                   <p class="pub-journal mt-1"><em>{pub.journal}</em>, {pub.year}{pub.note ? <span class="pub-note"> — {pub.note}</span> : ''}</p>
                   <div class="pub-actions mt-2">
-                    <a href={pub.doi} class="pub-btn" target="_blank" rel="noopener">DOI</a>
-                    <a href={pub.pdf} class="pub-btn" target="_blank" rel="noopener">PDF</a>
+                    {pub.doi && <a href={pub.doi} class="pub-btn" target="_blank" rel="noopener">DOI</a>}
+                    {pub.pdf && <a href={pub.pdf} class="pub-btn" target="_blank" rel="noopener">PDF</a>}
                   </div>
                 </div>
               </article>

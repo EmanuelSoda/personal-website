@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <BaseLayout title="Home" description="Emanuel Michele Soda — Computational Biologist & ML Scientist">
@@ -23,15 +24,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           Visiting at <strong>Wellcome Sanger Institute</strong> (Bayraktar group)
         </p>
         <div class="hero-cta">
-          <a href="/research" class="btn btn-primary">Research</a>
-          <a href="/publications" class="btn btn-ghost">Publications</a>
-          <a href="/cv" class="btn btn-ghost">CV</a>
+          <a href={`${base}/research/`} class="btn btn-primary">Research</a>
+          <a href={`${base}/publications/`} class="btn btn-ghost">Publications</a>
+          <a href={`${base}/cv/`} class="btn btn-ghost">CV</a>
         </div>
       </div>
 
       <div class="hero-photo">
         <div class="photo-frame">
-          <img src="/photo.jpg" alt="Emanuel Soda" class="photo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <img src={`${base}/photo.jpg`} alt="Emanuel Soda" class="photo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
           <div class="photo-placeholder">
             <span>ES</span>
           </div>
@@ -116,19 +117,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2 class="mt-1">Research highlights</h2>
 
       <div class="cards mt-4">
-        <a href="/research" class="card">
+        <a href={`${base}/research/`} class="card">
           <span class="tag">Spatial Omics</span>
           <h3 class="mt-2">IBD tissue microenvironment</h3>
           <p class="mt-1">Characterising spatially resolved microenvironments across 180 IBD and HC samples using probabilistic deconvolution and NMF-based niche discovery.</p>
           <span class="card-arrow">→</span>
         </a>
-        <a href="/research" class="card">
+        <a href={`${base}/research/`} class="card">
           <span class="tag">Deep Learning</span>
           <h3 class="mt-2">GeoMx + H&amp;E multimodal framework</h3>
           <p class="mt-1">Deep learning frameworks integrating GeoMx RNA profiles and histology features to characterise crypt-level heterogeneity in IBD at the Wellcome Sanger Institute.</p>
           <span class="card-arrow">→</span>
         </a>
-        <a href="/research" class="card">
+        <a href={`${base}/research/`} class="card">
           <span class="tag">Tool</span>
           <h3 class="mt-2">ScreenR — R/Bioconductor package</h3>
           <p class="mt-1">Automated hit identification in shRNA loss-of-function screens, integrating edgeR-based statistical testing within a Tidyverse-native pipeline.</p>
@@ -137,7 +138,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <div class="mt-4" style="text-align:center;">
-        <a href="/research" class="btn btn-ghost">All projects →</a>
+        <a href={`${base}/research/`} class="btn btn-ghost">All projects →</a>
       </div>
     </div>
   </section>
@@ -164,7 +165,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </article>
       </div>
       <div class="mt-4">
-        <a href="/publications" class="btn btn-ghost">All publications →</a>
+        <a href={`${base}/publications/`} class="btn btn-ghost">All publications →</a>
       </div>
     </div>
   </section>
