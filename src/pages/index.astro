@@ -1,0 +1,241 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Home" description="Emanuel Soda — Computational Biologist & Researcher">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-eyebrow">
+        <span class="tag">Computational Biology</span>
+      </div>
+      <h1 class="hero-name">
+        Emanuel<br /><em class="accent-italic">Soda</em>
+      </h1>
+      <p class="hero-tagline">
+        I decode biology through computation — building tools and models at the intersection of genomics, data science, and machine learning.
+      </p>
+      <div class="hero-cta">
+        <a href="/research" class="btn btn-primary">View Research</a>
+        <a href="/publications" class="btn btn-ghost">Publications</a>
+      </div>
+    </div>
+
+    <!-- decorative grid line -->
+    <div class="hero-grid" aria-hidden="true">
+      {Array.from({ length: 6 }).map((_, i) => (
+        <div class="grid-line" style={`--i:${i}`}></div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <p class="section-label">About</p>
+      <h2>Turning biological questions<br />into computational answers</h2>
+
+      <div class="about-body mt-4">
+        <p>
+          I'm a computational biologist working at the crossroads of genomics, single-cell biology, and machine learning.
+          My work focuses on developing scalable algorithms and pipelines to understand how gene regulation shapes cell identity and disease.
+        </p>
+        <p class="mt-2">
+          I believe that the most impactful science happens when rigorous mathematics meets biological curiosity.
+          Whether I'm designing a new inference method or digging into a dataset, I bring the same obsessive attention to detail.
+        </p>
+        <p class="mt-2">
+          Outside the lab I enjoy hiking, reading about the history of science, and building side projects in Python and Rust.
+        </p>
+      </div>
+
+      <div class="about-stats mt-6">
+        <div class="stat">
+          <span class="stat-num">10+</span>
+          <span class="stat-label">Publications</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">5+</span>
+          <span class="stat-label">Open-source tools</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Active projects</span>
+        </div>
+      </div>
+
+      <div class="about-interests mt-6">
+        <p class="section-label">Interests</p>
+        <div class="tags-row mt-1">
+          {['Single-cell genomics', 'Gene regulation', 'Deep learning', 'Multi-omics', 'Spatial transcriptomics', 'Statistical inference'].map(t => (
+            <span class="tag">{t}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED WORK PREVIEW -->
+  <section class="section" style="background: var(--bg-subtle); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="container">
+      <p class="section-label">Selected Work</p>
+      <h2 class="mt-1">Recent research highlights</h2>
+
+      <div class="cards mt-4">
+        <a href="/research" class="card">
+          <span class="tag">Method</span>
+          <h3 class="mt-2">Scalable single-cell trajectory inference</h3>
+          <p class="mt-1">A graph-based algorithm for reconstructing developmental trajectories from large-scale scRNA-seq data.</p>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="/research" class="card">
+          <span class="tag">Tool</span>
+          <h3 class="mt-2">Multi-omics integration pipeline</h3>
+          <p class="mt-1">End-to-end Python framework for integrating chromatin accessibility with gene expression across cell types.</p>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="/research" class="card">
+          <span class="tag">Analysis</span>
+          <h3 class="mt-2">Spatial transcriptomics of the tumor microenvironment</h3>
+          <p class="mt-1">Mapping spatially resolved gene expression to understand immune cell infiltration patterns in cancer.</p>
+          <span class="card-arrow">→</span>
+        </a>
+      </div>
+
+      <div class="mt-4" style="text-align:center;">
+        <a href="/research" class="btn btn-ghost">All projects →</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+/* ── HERO ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 7rem 0 6rem;
+  border-bottom: 1px solid var(--border);
+}
+.hero-eyebrow { margin-bottom: 1.5rem; }
+.hero-name {
+  font-size: clamp(3rem, 9vw, 6rem);
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+.accent-italic {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 300;
+}
+.hero-tagline {
+  max-width: 520px;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+}
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* Grid decoration */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+  z-index: 0;
+}
+.grid-line {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--accent-pale) 40%, transparent);
+  opacity: calc(0.3 + var(--i) * 0.08);
+  margin-right: calc(var(--i) * 60px + 40px);
+}
+.hero .container { position: relative; z-index: 1; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.6em 1.4em;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--accent-dim); color: #fff; }
+.btn-ghost {
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* About */
+.about-body p { max-width: 600px; }
+.about-stats {
+  display: flex;
+  gap: 3rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stat { display: flex; flex-direction: column; }
+.stat-num {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+.tags-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.card {
+  display: block;
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  color: inherit;
+}
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(16,185,129,0.08);
+  color: inherit;
+}
+.card h3 { color: var(--text); font-size: 1rem; margin-top: 0.75rem; }
+.card p { font-size: 0.875rem; margin-top: 0.5rem; }
+.card-arrow {
+  display: block;
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  color: var(--accent);
+  transition: transform 0.2s;
+}
+.card:hover .card-arrow { transform: translateX(4px); }
+</style>

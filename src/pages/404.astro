@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404 — Not Found">
+  <section class="section" style="text-align:center; padding: 8rem 0;">
+    <div class="container">
+      <p class="section-label">404</p>
+      <h1 style="font-size: clamp(2.5rem, 7vw, 5rem);">Page not found</h1>
+      <p class="mt-3">This page doesn't exist — or has moved somewhere else.</p>
+      <div class="mt-4">
+        <a href="/" class="btn btn-primary">← Back home</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.btn {
+  display: inline-flex;
+  padding: 0.6em 1.4em;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-dim); color: #fff; }
+</style>

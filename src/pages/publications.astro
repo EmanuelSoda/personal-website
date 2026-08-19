@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pubs = [
+  {
+    year: 2024,
+    type: 'Preprint',
+    title: 'Robust pseudotime estimation for large-scale single-cell atlases using graph diffusion',
+    authors: 'Soda E, Author B, Author C',
+    journal: 'bioRxiv',
+    doi: '#',
+    pdf: '#',
+  },
+  {
+    year: 2023,
+    type: 'Article',
+    title: 'Joint embedding of chromatin accessibility and gene expression reveals regulatory cell states',
+    authors: 'Soda E*, Author D*, Author E',
+    journal: 'Nature Methods',
+    doi: '#',
+    pdf: '#',
+  },
+  {
+    year: 2023,
+    type: 'Article',
+    title: 'Mixed-effects models correct for cell-type composition in single-cell differential expression',
+    authors: 'Author F, Soda E, Author G',
+    journal: 'Genome Biology',
+    doi: '#',
+    pdf: '#',
+  },
+  {
+    year: 2022,
+    type: 'Article',
+    title: 'Spatial mapping of tumor-infiltrating immune cells in colorectal cancer',
+    authors: 'Author H, Author I, Soda E',
+    journal: 'Cell Reports',
+    doi: '#',
+    pdf: '#',
+  },
+  {
+    year: 2022,
+    type: 'Article',
+    title: 'Benchmarking genome annotation lift-over methods for vertebrate genomes',
+    authors: 'Soda E, Author J',
+    journal: 'Bioinformatics',
+    doi: '#',
+    pdf: '#',
+  },
+  {
+    year: 2021,
+    type: 'Review',
+    title: 'Computational approaches to multi-omics data integration: a practical guide',
+    authors: 'Author K, Soda E, Author L',
+    journal: 'Briefings in Bioinformatics',
+    doi: '#',
+    pdf: '#',
+  },
+];
+
+const years = [...new Set(pubs.map(p => p.year))].sort((a, b) => b - a);
+---
+
+<BaseLayout title="Publications" description="Publications by Emanuel Soda">
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Publications</p>
+      <h1 style="font-size: clamp(2rem, 5vw, 3rem);">Papers & Preprints</h1>
+      <p class="mt-2" style="max-width:560px;">
+        * denotes co-first authorship. Links to full-text PDFs and DOIs where available.
+      </p>
+      <div class="pub-links-bar mt-3">
+        <a href="https://scholar.google.com" class="ext-link" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a href="https://orcid.org" class="ext-link" target="_blank" rel="noopener">ORCID ↗</a>
+        <a href="https://pubmed.ncbi.nlm.nih.gov" class="ext-link" target="_blank" rel="noopener">PubMed ↗</a>
+      </div>
+
+      {years.map(year => (
+        <div class="year-group mt-6">
+          <h2 class="year-heading">{year}</h2>
+          <div class="pub-list mt-3">
+            {pubs.filter(p => p.year === year).map(pub => (
+              <article class="pub-item">
+                <div class="pub-type-badge">
+                  <span class="tag">{pub.type}</span>
+                </div>
+                <div class="pub-body">
+                  <h3 class="pub-title">{pub.title}</h3>
+                  <p class="pub-authors mt-1">{pub.authors}</p>
+                  <p class="pub-journal mt-1"><em>{pub.journal}</em>, {pub.year}</p>
+                  <div class="pub-actions mt-2">
+                    <a href={pub.doi} class="pub-btn" target="_blank" rel="noopener">DOI</a>
+                    <a href={pub.pdf} class="pub-btn" target="_blank" rel="noopener">PDF</a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.pub-links-bar { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.ext-link {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-bottom: 1px dashed var(--border);
+  padding-bottom: 1px;
+}
+.ext-link:hover { color: var(--accent); border-color: var(--accent); }
+
+.year-heading {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.pub-list { display: flex; flex-direction: column; gap: 0; }
+
+.pub-item {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+  transition: background 0.15s;
+}
+.pub-item:hover { background: var(--bg-subtle); margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; border-radius: 6px; }
+
+.pub-type-badge { padding-top: 0.15rem; flex-shrink: 0; }
+
+.pub-title {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.5;
+}
+.pub-authors {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.pub-journal {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.pub-journal em { font-style: italic; }
+
+.pub-actions { display: flex; gap: 0.6rem; }
+.pub-btn {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.2em 0.65em;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-muted);
+  transition: all 0.15s;
+}
+.pub-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+</style>

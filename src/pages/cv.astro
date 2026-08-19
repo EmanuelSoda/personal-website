@@ -1,0 +1,240 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="CV" description="Curriculum Vitae of Emanuel Soda, Computational Biologist">
+  <section class="section">
+    <div class="container">
+      <div class="cv-header">
+        <div>
+          <p class="section-label">Curriculum Vitae</p>
+          <h1 style="font-size: clamp(2rem, 5vw, 3rem);">Emanuel Soda</h1>
+          <p class="mt-1" style="font-size:1rem;">Computational Biologist &amp; Researcher</p>
+        </div>
+        <a href="/cv.pdf" class="btn btn-primary" download>Download PDF</a>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Education -->
+      <div class="cv-section">
+        <h2 class="cv-section-title">Education</h2>
+        <div class="cv-entries">
+          <div class="cv-entry">
+            <div class="cv-entry-meta">
+              <span class="cv-year">2020 – 2024</span>
+            </div>
+            <div class="cv-entry-body">
+              <h3>Ph.D. in Computational Biology</h3>
+              <p class="cv-place">University Name, City, Country</p>
+              <p class="cv-desc mt-1">Thesis: <em>Scalable methods for single-cell trajectory inference and multi-omics integration</em>. Advised by Prof. X.</p>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-meta">
+              <span class="cv-year">2018 – 2020</span>
+            </div>
+            <div class="cv-entry-body">
+              <h3>M.Sc. in Bioinformatics</h3>
+              <p class="cv-place">University Name, City, Country</p>
+              <p class="cv-desc mt-1">Grade: 110/110 with honors. Thesis on genome annotation methods.</p>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-meta">
+              <span class="cv-year">2015 – 2018</span>
+            </div>
+            <div class="cv-entry-body">
+              <h3>B.Sc. in Biological Sciences</h3>
+              <p class="cv-place">University Name, City, Country</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Experience -->
+      <div class="cv-section">
+        <h2 class="cv-section-title">Experience</h2>
+        <div class="cv-entries">
+          <div class="cv-entry">
+            <div class="cv-entry-meta">
+              <span class="cv-year">2024 – now</span>
+            </div>
+            <div class="cv-entry-body">
+              <h3>Postdoctoral Researcher</h3>
+              <p class="cv-place">Institution Name — Group of Prof. Y</p>
+              <p class="cv-desc mt-1">Developing deep learning models for spatial transcriptomics and tumor microenvironment characterization.</p>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-meta">
+              <span class="cv-year">2022</span>
+            </div>
+            <div class="cv-entry-body">
+              <h3>Research Intern</h3>
+              <p class="cv-place">Company / Institute Name</p>
+              <p class="cv-desc mt-1">Built scalable data processing pipelines for single-cell genomics data at industry scale.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Skills -->
+      <div class="cv-section">
+        <h2 class="cv-section-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <p class="skill-group-title">Languages</p>
+            <div class="tags-row">
+              {['Python', 'R', 'Bash', 'SQL', 'Rust (learning)'].map(s => <span class="tag">{s}</span>)}
+            </div>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-title">Frameworks & Tools</p>
+            <div class="tags-row">
+              {['scanpy', 'Seurat', 'PyTorch', 'Snakemake', 'Nextflow', 'Docker', 'Git'].map(s => <span class="tag">{s}</span>)}
+            </div>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-title">Domains</p>
+            <div class="tags-row">
+              {['Single-cell genomics', 'Multi-omics', 'Spatial transcriptomics', 'ML / Deep learning', 'Statistical modeling'].map(s => <span class="tag">{s}</span>)}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Awards -->
+      <div class="cv-section">
+        <h2 class="cv-section-title">Awards & Funding</h2>
+        <div class="cv-entries">
+          <div class="cv-entry">
+            <div class="cv-entry-meta"><span class="cv-year">2023</span></div>
+            <div class="cv-entry-body">
+              <h3>Best Poster Award</h3>
+              <p class="cv-place">ISMB/ECCB 2023</p>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-meta"><span class="cv-year">2020</span></div>
+            <div class="cv-entry-body">
+              <h3>Ph.D. Fellowship</h3>
+              <p class="cv-place">Funding body / Ministry of Research</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Talks -->
+      <div class="cv-section">
+        <h2 class="cv-section-title">Talks & Conferences</h2>
+        <div class="cv-entries">
+          <div class="cv-entry">
+            <div class="cv-entry-meta"><span class="cv-year">2024</span></div>
+            <div class="cv-entry-body">
+              <h3>ISMB 2024 — Oral presentation</h3>
+              <p class="cv-place">"Scalable pseudotime estimation with graph diffusion"</p>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-meta"><span class="cv-year">2023</span></div>
+            <div class="cv-entry-body">
+              <h3>Single Cell Genomics 2023 — Poster</h3>
+              <p class="cv-place">"Multi-omics integration via joint embedding"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.cv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.6em 1.4em;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--accent-dim); color: #fff; }
+
+.cv-section { margin-bottom: 0; }
+.cv-section-title {
+  font-size: 0.72rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.cv-entries { display: flex; flex-direction: column; gap: 0; }
+.cv-entry {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.cv-entry:last-child { border-bottom: none; }
+
+.cv-year {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  padding-top: 0.2rem;
+  white-space: nowrap;
+}
+
+.cv-entry-body h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  color: var(--text);
+}
+.cv-place {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.1rem;
+}
+.cv-desc { font-size: 0.85rem; }
+.cv-desc em { font-style: italic; }
+
+.skills-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+.skill-group-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+.tags-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+@media (max-width: 500px) {
+  .cv-entry { grid-template-columns: 1fr; gap: 0.25rem; }
+}
+</style>

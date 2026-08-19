@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const projects = [
+  {
+    status: 'Active',
+    type: 'Method',
+    title: 'Scalable single-cell trajectory inference',
+    description:
+      'A graph-based algorithm for reconstructing developmental trajectories from large-scale scRNA-seq data with millions of cells. Combines k-NN graph partitioning with a novel pseudotime estimation approach robust to noise and dropout.',
+    tools: ['Python', 'scanpy', 'NumPy', 'scikit-learn'],
+    links: [
+      { label: 'GitHub', href: '#' },
+      { label: 'Preprint', href: '#' },
+    ],
+  },
+  {
+    status: 'Active',
+    type: 'Tool',
+    title: 'Multi-omics integration pipeline',
+    description:
+      'End-to-end Python framework for integrating chromatin accessibility (ATAC-seq) with gene expression (RNA-seq) across cell types. Enables joint dimensionality reduction and cis-regulatory element linking.',
+    tools: ['Python', 'Snakemake', 'PyTorch', 'pysam'],
+    links: [
+      { label: 'GitHub', href: '#' },
+      { label: 'Docs', href: '#' },
+    ],
+  },
+  {
+    status: 'Active',
+    type: 'Analysis',
+    title: 'Spatial transcriptomics of the tumor microenvironment',
+    description:
+      'Mapping spatially resolved gene expression to understand immune cell infiltration patterns in cancer. Integrating Visium data with scRNA-seq deconvolution to identify spatially variable gene programs.',
+    tools: ['R', 'Seurat', 'STARsolo', 'ggplot2'],
+    links: [
+      { label: 'GitHub', href: '#' },
+    ],
+  },
+  {
+    status: 'Completed',
+    type: 'Method',
+    title: 'Differential gene expression at scale',
+    description:
+      'Benchmarking and extending pseudo-bulk differential expression methods for single-cell studies. Introduced a mixed-effects model correction for cell-type proportion confounding.',
+    tools: ['R', 'edgeR', 'DESeq2', 'lme4'],
+    links: [
+      { label: 'GitHub', href: '#' },
+      { label: 'Paper', href: '#' },
+    ],
+  },
+  {
+    status: 'Completed',
+    type: 'Tool',
+    title: 'Genome annotation pipeline (GFF3/GTF)',
+    description:
+      'Automated pipeline for lifting over genome annotations between assemblies, validating gene models, and generating QC reports. Used in several vertebrate genome projects.',
+    tools: ['Python', 'Nextflow', 'AGAT', 'liftoff'],
+    links: [
+      { label: 'GitHub', href: '#' },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Research" description="Research projects by Emanuel Soda in computational biology">
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Research</p>
+      <h1 style="font-size: clamp(2rem, 5vw, 3rem);">Projects & Tools</h1>
+      <p class="mt-2" style="max-width: 560px;">
+        I develop computational methods and open-source software for analyzing large-scale biological datasets.
+        Below is a selection of ongoing and completed projects.
+      </p>
+
+      <div class="filter-row mt-4">
+        <span class="filter-dot active"></span>
+        <span class="filter-dot completed"></span>
+        <span style="font-size:0.78rem; color: var(--text-muted);"><strong style="color:var(--accent)">●</strong> Active &nbsp; <strong style="color:var(--border)">●</strong> Completed</span>
+      </div>
+
+      <div class="project-list mt-4">
+        {projects.map((p, i) => (
+          <article class:list={['project-card', { 'is-completed': p.status === 'Completed' }]}>
+            <div class="project-meta">
+              <span class="tag">{p.type}</span>
+              <span class:list={['status-dot', { completed: p.status === 'Completed' }]} title={p.status}></span>
+            </div>
+            <h2 class="project-title mt-2">{p.title}</h2>
+            <p class="project-desc mt-2">{p.description}</p>
+            <div class="project-tools mt-3">
+              {p.tools.map(t => <code class="tool-badge">{t}</code>)}
+            </div>
+            <div class="project-links mt-3">
+              {p.links.map(l => (
+                <a href={l.href} class="proj-link" target={l.href !== '#' ? '_blank' : undefined}>{l.label} ↗</a>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.filter-row { display: flex; align-items: center; gap: 0.5rem; }
+
+.project-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.project-card {
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.project-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 20px rgba(16,185,129,0.07);
+}
+.project-card.is-completed { opacity: 0.75; }
+.project-card.is-completed:hover { opacity: 1; }
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.status-dot.completed { background: var(--border); }
+
+.project-title {
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  max-width: 640px;
+}
+
+.project-tools { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tool-badge {
+  font-size: 0.72rem;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  padding: 0.15em 0.55em;
+  border-radius: 4px;
+  color: var(--text-muted);
+}
+
+.project-links { display: flex; gap: 1rem; }
+.proj-link {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--accent-dim);
+}
+.proj-link:hover { color: var(--accent); }
+</style>

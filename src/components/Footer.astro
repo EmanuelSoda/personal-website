@@ -1,0 +1,37 @@
+---
+---
+<footer class="footer">
+  <div class="container--wide footer-inner">
+    <span class="text-muted" style="font-size:0.8rem;">© {new Date().getFullYear()} Emanuel Soda</span>
+    <div class="footer-links">
+      <a href="mailto:emanuelsoda@gmail.com" aria-label="Email">Email</a>
+      <a href="https://github.com/emanuelsoda" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+      <a href="https://scholar.google.com" target="_blank" rel="noopener" aria-label="Google Scholar">Scholar</a>
+      <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter/X">X</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  margin-top: auto;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-links a {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.footer-links a:hover { color: var(--accent); }
+</style>
