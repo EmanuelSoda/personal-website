@@ -2,29 +2,46 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Home" description="Emanuel Soda — Computational Biologist & Researcher">
+<BaseLayout title="Home" description="Emanuel Michele Soda — Computational Biologist & ML Scientist">
 
   <!-- HERO -->
   <section class="hero">
-    <div class="container">
-      <div class="hero-eyebrow">
-        <span class="tag">Computational Biology</span>
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <div class="hero-eyebrow">
+          <span class="tag">Computational Biology · Machine Learning</span>
+        </div>
+        <h1 class="hero-name">
+          Emanuel<br /><em class="accent-italic">Soda</em>
+        </h1>
+        <p class="hero-tagline">
+          Computational scientist building ML and Bayesian models for multimodal biomedical data —
+          spatial transcriptomics, single-cell genomics, and digital pathology.
+        </p>
+        <p class="hero-affil">
+          PhD Researcher at <strong>Human Technopole & Politecnico di Milano</strong><br />
+          Visiting at <strong>Wellcome Sanger Institute</strong> (Bayraktar group)
+        </p>
+        <div class="hero-cta">
+          <a href="/research" class="btn btn-primary">Research</a>
+          <a href="/publications" class="btn btn-ghost">Publications</a>
+          <a href="/cv" class="btn btn-ghost">CV</a>
+        </div>
       </div>
-      <h1 class="hero-name">
-        Emanuel<br /><em class="accent-italic">Soda</em>
-      </h1>
-      <p class="hero-tagline">
-        I decode biology through computation — building tools and models at the intersection of genomics, data science, and machine learning.
-      </p>
-      <div class="hero-cta">
-        <a href="/research" class="btn btn-primary">View Research</a>
-        <a href="/publications" class="btn btn-ghost">Publications</a>
+
+      <div class="hero-photo">
+        <div class="photo-frame">
+          <img src="/photo.jpg" alt="Emanuel Soda" class="photo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="photo-placeholder">
+            <span>ES</span>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- decorative grid line -->
+    <!-- decorative grid lines -->
     <div class="hero-grid" aria-hidden="true">
-      {Array.from({ length: 6 }).map((_, i) => (
+      {Array.from({ length: 5 }).map((_, i) => (
         <div class="grid-line" style={`--i:${i}`}></div>
       ))}
     </div>
@@ -34,41 +51,57 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="section about-section" id="about">
     <div class="container">
       <p class="section-label">About</p>
-      <h2>Turning biological questions<br />into computational answers</h2>
+      <h2>Decoding biology<br />through computation</h2>
 
       <div class="about-body mt-4">
         <p>
-          I'm a computational biologist working at the crossroads of genomics, single-cell biology, and machine learning.
-          My work focuses on developing scalable algorithms and pipelines to understand how gene regulation shapes cell identity and disease.
+          I'm a computational scientist with 5+ years of experience developing machine learning,
+          Bayesian statistical models, and reproducible data pipelines for multimodal biomedical data.
+          My PhD focuses on characterising the spatial tissue microenvironment in Inflammatory Bowel Disease
+          using Visium spatial transcriptomics, computational pathology, and clinical outcome modelling.
         </p>
         <p class="mt-2">
-          I believe that the most impactful science happens when rigorous mathematics meets biological curiosity.
-          Whether I'm designing a new inference method or digging into a dataset, I bring the same obsessive attention to detail.
+          Currently a visiting PhD student at the <strong>Wellcome Sanger Institute</strong> (Bayraktar group, Hinxton, UK),
+          where I'm designing multimodal deep learning frameworks integrating GeoMx RNA profiles with H&amp;E histology features
+          to characterise crypt-level heterogeneity in IBD.
         </p>
         <p class="mt-2">
-          Outside the lab I enjoy hiking, reading about the history of science, and building side projects in Python and Rust.
+          I believe in open, reproducible science — most of my work ships as open-source tools and public pipelines.
         </p>
       </div>
 
       <div class="about-stats mt-6">
         <div class="stat">
-          <span class="stat-num">10+</span>
+          <span class="stat-num">2+</span>
           <span class="stat-label">Publications</span>
         </div>
         <div class="stat">
           <span class="stat-num">5+</span>
-          <span class="stat-label">Open-source tools</span>
+          <span class="stat-label">Years experience</span>
         </div>
         <div class="stat">
-          <span class="stat-num">3</span>
-          <span class="stat-label">Active projects</span>
+          <span class="stat-num">180+</span>
+          <span class="stat-label">IBD samples analysed</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">2</span>
+          <span class="stat-label">Hackathon wins</span>
         </div>
       </div>
 
       <div class="about-interests mt-6">
-        <p class="section-label">Interests</p>
+        <p class="section-label">Research Interests</p>
         <div class="tags-row mt-1">
-          {['Single-cell genomics', 'Gene regulation', 'Deep learning', 'Multi-omics', 'Spatial transcriptomics', 'Statistical inference'].map(t => (
+          {[
+            'Spatial transcriptomics',
+            'Single-cell genomics',
+            'Digital pathology',
+            'Bayesian modelling',
+            'Deep learning',
+            'Multi-omics integration',
+            'Inflammatory Bowel Disease',
+            'Biomarker discovery',
+          ].map(t => (
             <span class="tag">{t}</span>
           ))}
         </div>
@@ -76,35 +109,62 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- FEATURED WORK PREVIEW -->
+  <!-- FEATURED WORK -->
   <section class="section" style="background: var(--bg-subtle); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
     <div class="container">
       <p class="section-label">Selected Work</p>
-      <h2 class="mt-1">Recent research highlights</h2>
+      <h2 class="mt-1">Research highlights</h2>
 
       <div class="cards mt-4">
         <a href="/research" class="card">
-          <span class="tag">Method</span>
-          <h3 class="mt-2">Scalable single-cell trajectory inference</h3>
-          <p class="mt-1">A graph-based algorithm for reconstructing developmental trajectories from large-scale scRNA-seq data.</p>
+          <span class="tag">Spatial Omics</span>
+          <h3 class="mt-2">IBD tissue microenvironment</h3>
+          <p class="mt-1">Characterising spatially resolved microenvironments across 180 IBD and HC samples using probabilistic deconvolution and NMF-based niche discovery.</p>
+          <span class="card-arrow">→</span>
+        </a>
+        <a href="/research" class="card">
+          <span class="tag">Deep Learning</span>
+          <h3 class="mt-2">GeoMx + H&amp;E multimodal framework</h3>
+          <p class="mt-1">Deep learning frameworks integrating GeoMx RNA profiles and histology features to characterise crypt-level heterogeneity in IBD at the Wellcome Sanger Institute.</p>
           <span class="card-arrow">→</span>
         </a>
         <a href="/research" class="card">
           <span class="tag">Tool</span>
-          <h3 class="mt-2">Multi-omics integration pipeline</h3>
-          <p class="mt-1">End-to-end Python framework for integrating chromatin accessibility with gene expression across cell types.</p>
-          <span class="card-arrow">→</span>
-        </a>
-        <a href="/research" class="card">
-          <span class="tag">Analysis</span>
-          <h3 class="mt-2">Spatial transcriptomics of the tumor microenvironment</h3>
-          <p class="mt-1">Mapping spatially resolved gene expression to understand immune cell infiltration patterns in cancer.</p>
+          <h3 class="mt-2">ScreenR — R/Bioconductor package</h3>
+          <p class="mt-1">Automated hit identification in shRNA loss-of-function screens, integrating edgeR-based statistical testing within a Tidyverse-native pipeline.</p>
           <span class="card-arrow">→</span>
         </a>
       </div>
 
       <div class="mt-4" style="text-align:center;">
         <a href="/research" class="btn btn-ghost">All projects →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENT PUBLICATIONS -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Publications</p>
+      <h2 class="mt-1">Recent papers</h2>
+      <div class="pub-preview mt-4">
+        <article class="pub-row">
+          <span class="pub-year-pill">2026</span>
+          <div>
+            <p class="pub-title-inline">Hundreds of cardiac MRI traits derived using 3D diffusion autoencoders share a common genetic architecture.</p>
+            <p class="pub-meta">Ometto S, Chatterjee S, …, <strong>Soda EM</strong>, …, Glastonbury CA. <em>Nature Communications</em>, 2026.</p>
+          </div>
+        </article>
+        <article class="pub-row">
+          <span class="pub-year-pill">2024</span>
+          <div>
+            <p class="pub-title-inline">Automated workflow for the cell cycle analysis of (non-)adherent cells using a machine learning approach.</p>
+            <p class="pub-meta">Hayatigolkhatmi K*, Soriani C*, <strong>Soda EM*</strong> et al. <em>eLife</em>, 2024.</p>
+          </div>
+        </article>
+      </div>
+      <div class="mt-4">
+        <a href="/publications" class="btn btn-ghost">All publications →</a>
       </div>
     </div>
   </section>
@@ -116,36 +176,78 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 7rem 0 6rem;
+  padding: 6rem 0 5rem;
   border-bottom: 1px solid var(--border);
 }
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+.hero-text { flex: 1; min-width: 0; }
 .hero-eyebrow { margin-bottom: 1.5rem; }
 .hero-name {
-  font-size: clamp(3rem, 9vw, 6rem);
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
   font-weight: 300;
   line-height: 1;
   margin-bottom: 1.5rem;
 }
-.accent-italic {
-  font-style: italic;
-  color: var(--accent);
-  font-weight: 300;
-}
+.accent-italic { font-style: italic; color: var(--accent); font-weight: 300; }
 .hero-tagline {
-  max-width: 520px;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.65;
   color: var(--text-muted);
-  margin-bottom: 2.5rem;
+  margin-bottom: 0.75rem;
+  max-width: 480px;
 }
-.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-affil {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+.hero-affil strong { color: var(--text); font-weight: 500; }
+.hero-cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+/* Photo */
+.hero-photo { flex-shrink: 0; }
+.photo-frame {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--accent-pale);
+  box-shadow: 0 0 0 6px var(--bg), 0 0 0 8px var(--accent-pale);
+  position: relative;
+}
+.photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.photo-placeholder {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-pale);
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  color: var(--accent-dim);
+  font-weight: 600;
+}
 
 /* Grid decoration */
 .hero-grid {
   position: absolute;
-  inset: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   display: flex;
-  justify-content: flex-end;
   pointer-events: none;
   z-index: 0;
 }
@@ -153,8 +255,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   width: 1px;
   height: 100%;
   background: linear-gradient(to bottom, transparent, var(--accent-pale) 40%, transparent);
-  opacity: calc(0.3 + var(--i) * 0.08);
-  margin-right: calc(var(--i) * 60px + 40px);
+  opacity: calc(0.2 + var(--i) * 0.07);
+  margin-right: calc(var(--i) * 50px + 30px);
 }
 .hero .container { position: relative; z-index: 1; }
 
@@ -162,56 +264,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4em;
-  padding: 0.6em 1.4em;
+  padding: 0.55em 1.25em;
   border-radius: 6px;
   font-size: 0.875rem;
   font-weight: 500;
   transition: all 0.2s;
-  cursor: pointer;
 }
-.btn-primary {
-  background: var(--accent);
-  color: #fff;
-}
+.btn-primary { background: var(--accent); color: #fff; }
 .btn-primary:hover { background: var(--accent-dim); color: #fff; }
-.btn-ghost {
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-}
+.btn-ghost { border: 1px solid var(--border); color: var(--text-muted); }
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
 /* About */
-.about-body p { max-width: 600px; }
+.about-body p { max-width: 620px; }
 .about-stats {
   display: flex;
-  gap: 3rem;
-  padding: 2rem 0;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  padding: 1.75rem 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
 .stat { display: flex; flex-direction: column; }
-.stat-num {
-  font-family: var(--font-serif);
-  font-size: 2.2rem;
-  font-weight: 600;
-  color: var(--accent);
-  line-height: 1;
-}
-.stat-label {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-top: 0.25rem;
-  font-weight: 500;
-}
+.stat-num { font-family: var(--font-serif); font-size: 2rem; font-weight: 600; color: var(--accent); line-height: 1; }
+.stat-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem; font-weight: 500; }
 .tags-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
 /* Cards */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-}
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
 .card {
   display: block;
   padding: 1.75rem;
@@ -219,7 +299,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   border-radius: 10px;
   background: var(--bg);
   transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-  position: relative;
   color: inherit;
 }
 .card:hover {
@@ -228,14 +307,38 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   box-shadow: 0 8px 24px rgba(16,185,129,0.08);
   color: inherit;
 }
-.card h3 { color: var(--text); font-size: 1rem; margin-top: 0.75rem; }
-.card p { font-size: 0.875rem; margin-top: 0.5rem; }
-.card-arrow {
-  display: block;
-  margin-top: 1.25rem;
-  font-size: 1rem;
-  color: var(--accent);
-  transition: transform 0.2s;
-}
+.card h3 { color: var(--text); font-size: 0.95rem; font-family: var(--font-sans); font-weight: 500; margin-top: 0.6rem; }
+.card p { font-size: 0.85rem; margin-top: 0.5rem; }
+.card-arrow { display: block; margin-top: 1.25rem; font-size: 1rem; color: var(--accent); transition: transform 0.2s; }
 .card:hover .card-arrow { transform: translateX(4px); }
+
+/* Publications preview */
+.pub-preview { display: flex; flex-direction: column; gap: 0; }
+.pub-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.pub-year-pill {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--accent-pale);
+  color: var(--accent-dim);
+  padding: 0.2em 0.6em;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.pub-title-inline { font-size: 0.9rem; font-weight: 500; color: var(--text); line-height: 1.5; }
+.pub-meta { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; }
+.pub-meta em { font-style: italic; }
+
+@media (max-width: 640px) {
+  .hero-inner { flex-direction: column-reverse; align-items: flex-start; }
+  .photo-frame { width: 140px; height: 140px; }
+}
 </style>

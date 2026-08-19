@@ -4,87 +4,95 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const projects = [
   {
     status: 'Active',
-    type: 'Method',
-    title: 'Scalable single-cell trajectory inference',
+    type: 'Spatial Omics',
+    title: 'Crypt-level heterogeneity in IBD — multimodal deep learning',
     description:
-      'A graph-based algorithm for reconstructing developmental trajectories from large-scale scRNA-seq data with millions of cells. Combines k-NN graph partitioning with a novel pseudotime estimation approach robust to noise and dropout.',
-    tools: ['Python', 'scanpy', 'NumPy', 'scikit-learn'],
-    links: [
-      { label: 'GitHub', href: '#' },
-      { label: 'Preprint', href: '#' },
-    ],
+      'Designing multimodal deep learning frameworks integrating GeoMx Digital Spatial Profiling RNA profiles and H&E histology features to characterise crypt-level transcriptional and morphological heterogeneity across Inflammatory Bowel Disease and healthy control patients.',
+    tools: ['Python', 'PyTorch', 'GeoMx', 'OpenCV', 'H&E histology'],
+    affil: 'Wellcome Sanger Institute (Bayraktar group)',
+    links: [{ label: 'GitHub', href: 'https://github.com/EmanuelSoda' }],
   },
   {
     status: 'Active',
-    type: 'Tool',
-    title: 'Multi-omics integration pipeline',
+    type: 'Spatial Omics',
+    title: 'IBD tissue microenvironment — spatial transcriptomics',
     description:
-      'End-to-end Python framework for integrating chromatin accessibility (ATAC-seq) with gene expression (RNA-seq) across cell types. Enables joint dimensionality reduction and cis-regulatory element linking.',
-    tools: ['Python', 'Snakemake', 'PyTorch', 'pysam'],
-    links: [
-      { label: 'GitHub', href: '#' },
-      { label: 'Docs', href: '#' },
-    ],
+      'Characterising spatially resolved tissue microenvironments across 180 IBD and healthy control samples using probabilistic cell type deconvolution and NMF-based niche discovery. Building Bayesian classification and regression models linking spatial cellular composition to patient-level clinical outcomes.',
+    tools: ['Python', 'Scanpy', 'Squidpy', 'SpatialData', 'Pyro', 'Visium'],
+    affil: 'Human Technopole & Politecnico di Milano',
+    links: [{ label: 'GitHub', href: 'https://github.com/EmanuelSoda' }],
   },
   {
     status: 'Active',
-    type: 'Analysis',
-    title: 'Spatial transcriptomics of the tumor microenvironment',
+    type: 'Computational Pathology',
+    title: 'Whole-slide image analysis in IBD',
     description:
-      'Mapping spatially resolved gene expression to understand immune cell infiltration patterns in cancer. Integrating Visium data with scRNA-seq deconvolution to identify spatially variable gene programs.',
-    tools: ['R', 'Seurat', 'STARsolo', 'ggplot2'],
+      'Computational pathology workflows integrating instance segmentation, supervised tissue classification, and self-supervised representation learning (SSL) to quantify crypt-level morphological heterogeneity across IBD whole slide images.',
+    tools: ['Python', 'PyTorch', 'LazySlide', 'scikit-image', 'OpenCV'],
+    affil: 'Human Technopole',
+    links: [{ label: 'GitHub', href: 'https://github.com/EmanuelSoda' }],
+  },
+  {
+    status: 'Completed',
+    type: 'ML · Live-cell imaging',
+    title: 'Automated cell cycle phase classification',
+    description:
+      'Developed and validated an end-to-end automated ML pipeline for cell cycle phase classification from live cell imaging data, including image processing, feature extraction, supervised classification, quality control, and reproducible model evaluation. Reduced manual processing time by 80%. Published in eLife.',
+    tools: ['Python', 'Scikit-learn', 'PyTorch', 'ImageJ/Fiji', 'NumPy'],
+    affil: 'Istituto Europeo di Oncologia (IEO)',
     links: [
-      { label: 'GitHub', href: '#' },
+      { label: 'GitHub', href: 'https://github.com/EmanuelSoda' },
+      { label: 'eLife paper', href: '#' },
     ],
   },
   {
     status: 'Completed',
-    type: 'Method',
-    title: 'Differential gene expression at scale',
+    type: 'R Package',
+    title: 'ScreenR — shRNA screen analysis',
     description:
-      'Benchmarking and extending pseudo-bulk differential expression methods for single-cell studies. Introduced a mixed-effects model correction for cell-type proportion confounding.',
-    tools: ['R', 'edgeR', 'DESeq2', 'lme4'],
+      'An R/Bioconductor package for automated hit identification in shRNA loss-of-function screens, integrating edgeR-based statistical testing within a Tidyverse-native pipeline to process barcode count data at scale.',
+    tools: ['R', 'Bioconductor', 'edgeR', 'Tidyverse'],
+    affil: 'Politecnico di Milano',
     links: [
-      { label: 'GitHub', href: '#' },
-      { label: 'Paper', href: '#' },
+      { label: 'GitHub', href: 'https://github.com/EmanuelSoda' },
+      { label: 'Bioconductor', href: '#' },
     ],
   },
   {
     status: 'Completed',
-    type: 'Tool',
-    title: 'Genome annotation pipeline (GFF3/GTF)',
+    type: 'Genomics',
+    title: 'AML epigenome-metabolism linkage',
     description:
-      'Automated pipeline for lifting over genome annotations between assemblies, validating gene models, and generating QC reports. Used in several vertebrate genome projects.',
-    tools: ['Python', 'Nextflow', 'AGAT', 'liftoff'],
-    links: [
-      { label: 'GitHub', href: '#' },
-    ],
+      'Analysed bulk and single-cell Acute Myeloid Leukaemia data to link metabolic alterations to epigenetic changes using integrative omics approaches.',
+    tools: ['R', 'Python', 'Seurat', 'DESeq2', 'scRNA-seq', 'ATAC-seq'],
+    affil: 'Istituto Europeo di Oncologia (IEO)',
+    links: [{ label: 'GitHub', href: 'https://github.com/EmanuelSoda' }],
   },
 ];
 ---
 
-<BaseLayout title="Research" description="Research projects by Emanuel Soda in computational biology">
+<BaseLayout title="Research" description="Research projects by Emanuel Michele Soda">
   <section class="section">
     <div class="container">
       <p class="section-label">Research</p>
       <h1 style="font-size: clamp(2rem, 5vw, 3rem);">Projects & Tools</h1>
-      <p class="mt-2" style="max-width: 560px;">
-        I develop computational methods and open-source software for analyzing large-scale biological datasets.
-        Below is a selection of ongoing and completed projects.
+      <p class="mt-2" style="max-width: 580px;">
+        I develop computational methods and open-source software for analysing large-scale multimodal biomedical datasets.
+        My focus is on spatial transcriptomics, computational pathology, and clinical outcome modelling in IBD.
       </p>
 
-      <div class="filter-row mt-4">
-        <span class="filter-dot active"></span>
-        <span class="filter-dot completed"></span>
-        <span style="font-size:0.78rem; color: var(--text-muted);"><strong style="color:var(--accent)">●</strong> Active &nbsp; <strong style="color:var(--border)">●</strong> Completed</span>
+      <div class="legend mt-4">
+        <span class="status-dot"></span><span class="legend-label">Active</span>
+        <span class="status-dot completed"></span><span class="legend-label">Completed</span>
       </div>
 
       <div class="project-list mt-4">
-        {projects.map((p, i) => (
+        {projects.map((p) => (
           <article class:list={['project-card', { 'is-completed': p.status === 'Completed' }]}>
             <div class="project-meta">
               <span class="tag">{p.type}</span>
               <span class:list={['status-dot', { completed: p.status === 'Completed' }]} title={p.status}></span>
+              <span class="affil-badge">{p.affil}</span>
             </div>
             <h2 class="project-title mt-2">{p.title}</h2>
             <p class="project-desc mt-2">{p.description}</p>
@@ -93,7 +101,7 @@ const projects = [
             </div>
             <div class="project-links mt-3">
               {p.links.map(l => (
-                <a href={l.href} class="proj-link" target={l.href !== '#' ? '_blank' : undefined}>{l.label} ↗</a>
+                <a href={l.href} class="proj-link" target="_blank" rel="noopener">{l.label} ↗</a>
               ))}
             </div>
           </article>
@@ -104,12 +112,10 @@ const projects = [
 </BaseLayout>
 
 <style>
-.filter-row { display: flex; align-items: center; gap: 0.5rem; }
+.legend { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--text-muted); }
+.legend-label { margin-right: 1rem; }
 
-.project-list {
-  display: grid;
-  gap: 1.5rem;
-}
+.project-list { display: grid; gap: 1.5rem; }
 
 .project-card {
   padding: 2rem;
@@ -121,33 +127,32 @@ const projects = [
   border-color: var(--accent);
   box-shadow: 0 4px 20px rgba(16,185,129,0.07);
 }
-.project-card.is-completed { opacity: 0.75; }
+.project-card.is-completed { opacity: 0.7; }
 .project-card.is-completed:hover { opacity: 1; }
 
 .project-meta {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .status-dot {
-  width: 8px;
-  height: 8px;
+  width: 8px; height: 8px;
   border-radius: 50%;
   background: var(--accent);
   flex-shrink: 0;
 }
 .status-dot.completed { background: var(--border); }
 
-.project-title {
-  font-size: 1.15rem;
-  color: var(--text);
+.affil-badge {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 500;
 }
 
-.project-desc {
-  font-size: 0.9rem;
-  max-width: 640px;
-}
+.project-title { font-size: 1.1rem; color: var(--text); font-family: var(--font-sans); font-weight: 500; }
+.project-desc { font-size: 0.88rem; max-width: 680px; }
 
 .project-tools { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .tool-badge {
@@ -161,10 +166,6 @@ const projects = [
 }
 
 .project-links { display: flex; gap: 1rem; }
-.proj-link {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--accent-dim);
-}
+.proj-link { font-size: 0.82rem; font-weight: 500; color: var(--accent-dim); }
 .proj-link:hover { color: var(--accent); }
 </style>

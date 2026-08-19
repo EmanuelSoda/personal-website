@@ -1,6 +1,7 @@
 node_modules/
 dist/
 .astro/
+# docs/ is committed — it's the GitHub Pages output
 .env
 .env.*
 !.env.example

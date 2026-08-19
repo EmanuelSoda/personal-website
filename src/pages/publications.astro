@@ -3,76 +3,41 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pubs = [
   {
+    year: 2026,
+    type: 'Article',
+    title: 'Hundreds of cardiac MRI traits derived using 3D diffusion autoencoders share a common genetic architecture.',
+    authors: 'Sara Ometto, Soumick Chatterjee, …, Emanuel M. Soda, …, Craig A. Glastonbury',
+    journal: 'Nature Communications',
+    doi: '#',
+    pdf: '#',
+  },
+  {
     year: 2024,
-    type: 'Preprint',
-    title: 'Robust pseudotime estimation for large-scale single-cell atlases using graph diffusion',
-    authors: 'Soda E, Author B, Author C',
-    journal: 'bioRxiv',
-    doi: '#',
-    pdf: '#',
-  },
-  {
-    year: 2023,
     type: 'Article',
-    title: 'Joint embedding of chromatin accessibility and gene expression reveals regulatory cell states',
-    authors: 'Soda E*, Author D*, Author E',
-    journal: 'Nature Methods',
+    title: 'Automated workflow for the cell cycle analysis of (non-)adherent cells using a machine learning approach.',
+    authors: 'Kourosh Hayatigolkhatmi*, Chiara Soriani*, Emanuel M. Soda* et al.',
+    journal: 'eLife',
     doi: '#',
     pdf: '#',
-  },
-  {
-    year: 2023,
-    type: 'Article',
-    title: 'Mixed-effects models correct for cell-type composition in single-cell differential expression',
-    authors: 'Author F, Soda E, Author G',
-    journal: 'Genome Biology',
-    doi: '#',
-    pdf: '#',
-  },
-  {
-    year: 2022,
-    type: 'Article',
-    title: 'Spatial mapping of tumor-infiltrating immune cells in colorectal cancer',
-    authors: 'Author H, Author I, Soda E',
-    journal: 'Cell Reports',
-    doi: '#',
-    pdf: '#',
-  },
-  {
-    year: 2022,
-    type: 'Article',
-    title: 'Benchmarking genome annotation lift-over methods for vertebrate genomes',
-    authors: 'Soda E, Author J',
-    journal: 'Bioinformatics',
-    doi: '#',
-    pdf: '#',
-  },
-  {
-    year: 2021,
-    type: 'Review',
-    title: 'Computational approaches to multi-omics data integration: a practical guide',
-    authors: 'Author K, Soda E, Author L',
-    journal: 'Briefings in Bioinformatics',
-    doi: '#',
-    pdf: '#',
+    note: '* co-first authors',
   },
 ];
 
 const years = [...new Set(pubs.map(p => p.year))].sort((a, b) => b - a);
 ---
 
-<BaseLayout title="Publications" description="Publications by Emanuel Soda">
+<BaseLayout title="Publications" description="Publications by Emanuel Michele Soda">
   <section class="section">
     <div class="container">
       <p class="section-label">Publications</p>
       <h1 style="font-size: clamp(2rem, 5vw, 3rem);">Papers & Preprints</h1>
       <p class="mt-2" style="max-width:560px;">
-        * denotes co-first authorship. Links to full-text PDFs and DOIs where available.
+        * denotes co-first authorship.
       </p>
       <div class="pub-links-bar mt-3">
-        <a href="https://scholar.google.com" class="ext-link" target="_blank" rel="noopener">Google Scholar ↗</a>
-        <a href="https://orcid.org" class="ext-link" target="_blank" rel="noopener">ORCID ↗</a>
-        <a href="https://pubmed.ncbi.nlm.nih.gov" class="ext-link" target="_blank" rel="noopener">PubMed ↗</a>
+        <a href="https://scholar.google.com/citations?user=EmanuelSoda" class="ext-link" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a href="https://orcid.org/0000-0000-0000-0000" class="ext-link" target="_blank" rel="noopener">ORCID ↗</a>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/?term=soda+EM" class="ext-link" target="_blank" rel="noopener">PubMed ↗</a>
       </div>
 
       {years.map(year => (
@@ -87,7 +52,7 @@ const years = [...new Set(pubs.map(p => p.year))].sort((a, b) => b - a);
                 <div class="pub-body">
                   <h3 class="pub-title">{pub.title}</h3>
                   <p class="pub-authors mt-1">{pub.authors}</p>
-                  <p class="pub-journal mt-1"><em>{pub.journal}</em>, {pub.year}</p>
+                  <p class="pub-journal mt-1"><em>{pub.journal}</em>, {pub.year}{pub.note ? <span class="pub-note"> — {pub.note}</span> : ''}</p>
                   <div class="pub-actions mt-2">
                     <a href={pub.doi} class="pub-btn" target="_blank" rel="noopener">DOI</a>
                     <a href={pub.pdf} class="pub-btn" target="_blank" rel="noopener">PDF</a>
@@ -98,6 +63,34 @@ const years = [...new Set(pubs.map(p => p.year))].sort((a, b) => b - a);
           </div>
         </div>
       ))}
+
+      <!-- Conferences -->
+      <div class="year-group mt-6">
+        <h2 class="year-heading" style="color: var(--text-muted); font-size: 1.2rem;">Selected Conferences & Talks</h2>
+        <div class="pub-list mt-3">
+          <article class="pub-item">
+            <div class="pub-type-badge"><span class="tag">Oral</span></div>
+            <div class="pub-body">
+              <h3 class="pub-title">Charting the molecular and Spatial Transcriptomic landscape of Crypt variability in IBD.</h3>
+              <p class="pub-journal mt-1">21st European Congress on Digital Pathology (ECDP), <em>Barcelona</em>, June 2025</p>
+            </div>
+          </article>
+          <article class="pub-item">
+            <div class="pub-type-badge"><span class="tag">Poster</span></div>
+            <div class="pub-body">
+              <h3 class="pub-title">Charting the molecular and Spatial Transcriptomic landscape of Crypt variability in IBD.</h3>
+              <p class="pub-journal mt-1">American Society of Human Genetics (ASHG), <em>Denver</em>, November 2024</p>
+            </div>
+          </article>
+          <article class="pub-item">
+            <div class="pub-type-badge"><span class="tag">Poster</span></div>
+            <div class="pub-body">
+              <h3 class="pub-title">Charting the molecular and Spatial Transcriptomic landscape of Crypt variability in IBD.</h3>
+              <p class="pub-journal mt-1">PhD and Postdoc Symposium "Research in Motion", <em>Milan</em>, September 2025</p>
+            </div>
+          </article>
+        </div>
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -122,8 +115,7 @@ const years = [...new Set(pubs.map(p => p.year))].sort((a, b) => b - a);
   border-bottom: 1px solid var(--border);
 }
 
-.pub-list { display: flex; flex-direction: column; gap: 0; }
-
+.pub-list { display: flex; flex-direction: column; }
 .pub-item {
   display: flex;
   gap: 1.25rem;
@@ -131,27 +123,27 @@ const years = [...new Set(pubs.map(p => p.year))].sort((a, b) => b - a);
   border-bottom: 1px solid var(--border);
   align-items: flex-start;
   transition: background 0.15s;
+  border-radius: 6px;
 }
-.pub-item:hover { background: var(--bg-subtle); margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; border-radius: 6px; }
+.pub-item:hover {
+  background: var(--bg-subtle);
+  margin: 0 -0.75rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
 
 .pub-type-badge { padding-top: 0.15rem; flex-shrink: 0; }
-
 .pub-title {
   font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   font-weight: 500;
   color: var(--text);
   line-height: 1.5;
 }
-.pub-authors {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-}
-.pub-journal {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-}
+.pub-authors { font-size: 0.82rem; color: var(--text-muted); }
+.pub-journal { font-size: 0.82rem; color: var(--text-muted); }
 .pub-journal em { font-style: italic; }
+.pub-note { font-size: 0.78rem; opacity: 0.8; }
 
 .pub-actions { display: flex; gap: 0.6rem; }
 .pub-btn {
@@ -163,8 +155,5 @@ const years = [...new Set(pubs.map(p => p.year))].sort((a, b) => b - a);
   color: var(--text-muted);
   transition: all 0.15s;
 }
-.pub-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
+.pub-btn:hover { border-color: var(--accent); color: var(--accent); }
 </style>

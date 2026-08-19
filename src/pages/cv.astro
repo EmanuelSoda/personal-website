@@ -2,51 +2,71 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="CV" description="Curriculum Vitae of Emanuel Soda, Computational Biologist">
+<BaseLayout title="CV" description="Curriculum Vitae of Emanuel Michele Soda, Computational Biologist">
   <section class="section">
     <div class="container">
       <div class="cv-header">
         <div>
           <p class="section-label">Curriculum Vitae</p>
-          <h1 style="font-size: clamp(2rem, 5vw, 3rem);">Emanuel Soda</h1>
-          <p class="mt-1" style="font-size:1rem;">Computational Biologist &amp; Researcher</p>
+          <h1 style="font-size: clamp(2rem, 5vw, 3rem);">Emanuel Michele Soda</h1>
+          <p class="cv-subtitle mt-1">Computational Scientist · Spatial Transcriptomics · Machine Learning</p>
+          <p class="cv-contact mt-1">Milan, Italy &nbsp;·&nbsp; emanuelsoda@gmail.com &nbsp;·&nbsp; <a href="https://github.com/EmanuelSoda" target="_blank">github.com/EmanuelSoda</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/emanuel-soda" target="_blank">linkedin</a></p>
         </div>
-        <a href="/cv.pdf" class="btn btn-primary" download>Download PDF</a>
+        <div class="cv-actions">
+          <a href="/cv.pdf" class="btn btn-primary" target="_blank">View PDF</a>
+          <a href="/cv.pdf" class="btn btn-ghost" download="Emanuel_Soda_CV.pdf">Download</a>
+        </div>
+      </div>
+
+      <!-- PDF Viewer -->
+      <div class="pdf-viewer mt-4">
+        <iframe
+          src="/cv.pdf#view=FitH"
+          title="Emanuel Soda CV"
+          class="cv-iframe"
+        ></iframe>
       </div>
 
       <hr class="divider" />
 
-      <!-- Education -->
+      <!-- Summary -->
       <div class="cv-section">
-        <h2 class="cv-section-title">Education</h2>
-        <div class="cv-entries">
-          <div class="cv-entry">
-            <div class="cv-entry-meta">
-              <span class="cv-year">2020 – 2024</span>
-            </div>
-            <div class="cv-entry-body">
-              <h3>Ph.D. in Computational Biology</h3>
-              <p class="cv-place">University Name, City, Country</p>
-              <p class="cv-desc mt-1">Thesis: <em>Scalable methods for single-cell trajectory inference and multi-omics integration</em>. Advised by Prof. X.</p>
-            </div>
-          </div>
-          <div class="cv-entry">
-            <div class="cv-entry-meta">
-              <span class="cv-year">2018 – 2020</span>
-            </div>
-            <div class="cv-entry-body">
-              <h3>M.Sc. in Bioinformatics</h3>
-              <p class="cv-place">University Name, City, Country</p>
-              <p class="cv-desc mt-1">Grade: 110/110 with honors. Thesis on genome annotation methods.</p>
+        <h2 class="cv-section-title">Summary</h2>
+        <p style="max-width:680px; font-size:0.95rem;">
+          Computational scientist with 5+ years of experience developing machine learning, Bayesian statistical models,
+          and reproducible data pipelines for multimodal biomedical data, including spatial transcriptomics,
+          single-cell genomics, digital pathology, live cell imaging, and clinical outcome modelling.
+        </p>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Skills -->
+      <div class="cv-section">
+        <h2 class="cv-section-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <p class="skill-group-title">Programming & Data</p>
+            <div class="tags-row">
+              {['Python', 'R', 'SQL', 'Bash/Linux', 'Git/GitHub', 'Docker'].map(s => <span class="tag">{s}</span>)}
             </div>
           </div>
-          <div class="cv-entry">
-            <div class="cv-entry-meta">
-              <span class="cv-year">2015 – 2018</span>
+          <div class="skill-group">
+            <p class="skill-group-title">Machine & Deep Learning</p>
+            <div class="tags-row">
+              {['PyTorch', 'Scikit-learn', 'statsmodels', 'Pyro', 'scvi-tools', 'Tidymodels'].map(s => <span class="tag">{s}</span>)}
             </div>
-            <div class="cv-entry-body">
-              <h3>B.Sc. in Biological Sciences</h3>
-              <p class="cv-place">University Name, City, Country</p>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-title">Bioinformatics</p>
+            <div class="tags-row">
+              {['Scanpy', 'Seurat', 'Squidpy', 'SpatialData', 'Nextflow', 'HPC'].map(s => <span class="tag">{s}</span>)}
+            </div>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group-title">Image & Spatial Analysis</p>
+            <div class="tags-row">
+              {['Segmentation', 'Registration', 'OpenCV', 'scikit-image', 'LazySlide', 'ImageJ'].map(s => <span class="tag">{s}</span>)}
             </div>
           </div>
         </div>
@@ -60,22 +80,42 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="cv-entries">
           <div class="cv-entry">
             <div class="cv-entry-meta">
-              <span class="cv-year">2024 – now</span>
+              <span class="cv-year">Apr 2026 – now</span>
             </div>
             <div class="cv-entry-body">
-              <h3>Postdoctoral Researcher</h3>
-              <p class="cv-place">Institution Name — Group of Prof. Y</p>
-              <p class="cv-desc mt-1">Developing deep learning models for spatial transcriptomics and tumor microenvironment characterization.</p>
+              <h3>Visiting PhD Student</h3>
+              <p class="cv-place">Wellcome Sanger Institute, Hinxton, UK — Bayraktar group</p>
+              <p class="cv-desc mt-1">Designed multimodal deep learning frameworks integrating GeoMx RNA profiles and H&amp;E histology features to characterise crypt-level heterogeneity across IBD and healthy control patients.</p>
             </div>
           </div>
           <div class="cv-entry">
             <div class="cv-entry-meta">
-              <span class="cv-year">2022</span>
+              <span class="cv-year">Sep 2023 – now</span>
             </div>
             <div class="cv-entry-body">
-              <h3>Research Intern</h3>
-              <p class="cv-place">Company / Institute Name</p>
-              <p class="cv-desc mt-1">Built scalable data processing pipelines for single-cell genomics data at industry scale.</p>
+              <h3>Doctoral Researcher</h3>
+              <p class="cv-place">Human Technopole & Politecnico di Milano, Milan, Italy</p>
+              <p class="cv-desc mt-1">PhD in Data Analytics and Decision Sciences.</p>
+              <ul class="cv-bullets mt-1">
+                <li>Developed reproducible computational pipelines integrating spatial transcriptomics, histopathology, cell type composition, and clinical outcomes.</li>
+                <li>Characterised spatially resolved tissue microenvironments across 180 IBD and healthy control samples using probabilistic deconvolution and NMF-based niche discovery.</li>
+                <li>Built Bayesian classification and regression models linking spatial composition to clinical outcomes for interpretable biomarker discovery from Visium data.</li>
+                <li>Developed computational pathology workflows integrating instance segmentation and self-supervised representation learning to quantify crypt-level morphological heterogeneity across IBD whole slide images.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-meta">
+              <span class="cv-year">Oct 2020 – Sep 2023</span>
+            </div>
+            <div class="cv-entry-body">
+              <h3>Bioinformatician & ML Scientist</h3>
+              <p class="cv-place">Istituto Europeo di Oncologia (IEO), Milan, Italy</p>
+              <ul class="cv-bullets mt-1">
+                <li>Developed and validated an automated ML pipeline for cell cycle phase classification from live cell imaging data — co-authored eLife publication.</li>
+                <li>Analysed bulk and single-cell AML data linking metabolic to epigenetic alterations.</li>
+                <li>Reduced manual processing time by 80% through automated computational analysis.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -83,26 +123,51 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <hr class="divider" />
 
-      <!-- Skills -->
+      <!-- Education -->
       <div class="cv-section">
-        <h2 class="cv-section-title">Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-group">
-            <p class="skill-group-title">Languages</p>
-            <div class="tags-row">
-              {['Python', 'R', 'Bash', 'SQL', 'Rust (learning)'].map(s => <span class="tag">{s}</span>)}
+        <h2 class="cv-section-title">Education</h2>
+        <div class="cv-entries">
+          <div class="cv-entry">
+            <div class="cv-entry-meta"><span class="cv-year">Sep 2023 – now</span></div>
+            <div class="cv-entry-body">
+              <h3>PhD in Data Analytics and Decision Sciences</h3>
+              <p class="cv-place">Human Technopole & Politecnico di Milano, Milan, Italy</p>
             </div>
           </div>
-          <div class="skill-group">
-            <p class="skill-group-title">Frameworks & Tools</p>
-            <div class="tags-row">
-              {['scanpy', 'Seurat', 'PyTorch', 'Snakemake', 'Nextflow', 'Docker', 'Git'].map(s => <span class="tag">{s}</span>)}
+          <div class="cv-entry">
+            <div class="cv-entry-meta"><span class="cv-year">Oct 2019 – Dec 2021</span></div>
+            <div class="cv-entry-body">
+              <h3>MSc in Bioinformatics for Computational Genomics</h3>
+              <p class="cv-place">Politecnico di Milano & University of Milan, Milan, Italy</p>
+              <p class="cv-desc mt-1">Developed <strong>ScreenR</strong>, an R/Bioconductor package for automated hit identification in shRNA loss-of-function screens, integrating edgeR-based statistical testing within a Tidyverse-native pipeline.</p>
             </div>
           </div>
-          <div class="skill-group">
-            <p class="skill-group-title">Domains</p>
-            <div class="tags-row">
-              {['Single-cell genomics', 'Multi-omics', 'Spatial transcriptomics', 'ML / Deep learning', 'Statistical modeling'].map(s => <span class="tag">{s}</span>)}
+          <div class="cv-entry">
+            <div class="cv-entry-meta"><span class="cv-year">Oct 2016 – Oct 2019</span></div>
+            <div class="cv-entry-body">
+              <h3>BSc in Computer Science</h3>
+              <p class="cv-place">University of Milan Bicocca, Milan, Italy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Publications -->
+      <div class="cv-section">
+        <h2 class="cv-section-title">Publications</h2>
+        <div class="cv-entries">
+          <div class="cv-entry">
+            <div class="cv-entry-meta"><span class="cv-year">2026</span></div>
+            <div class="cv-entry-body">
+              <p class="pub-text">Sara Ometto, Soumick Chatterjee, …, <strong>Emanuel M. Soda</strong>, …, Craig A. Glastonbury. Hundreds of cardiac MRI traits derived using 3D diffusion autoencoders share a common genetic architecture. <em>Nature Communications</em>, 2026.</p>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-meta"><span class="cv-year">2024</span></div>
+            <div class="cv-entry-body">
+              <p class="pub-text">Kourosh Hayatigolkhatmi*, Chiara Soriani*, <strong>Emanuel M. Soda*</strong> et al. Automated workflow for the cell cycle analysis of (non-)adherent cells using a machine learning approach. <em>eLife</em>, 2024.</p>
             </div>
           </div>
         </div>
@@ -112,20 +177,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <!-- Awards -->
       <div class="cv-section">
-        <h2 class="cv-section-title">Awards & Funding</h2>
+        <h2 class="cv-section-title">Awards & Grants</h2>
         <div class="cv-entries">
           <div class="cv-entry">
-            <div class="cv-entry-meta"><span class="cv-year">2023</span></div>
+            <div class="cv-entry-meta"><span class="cv-year">2024</span></div>
             <div class="cv-entry-body">
-              <h3>Best Poster Award</h3>
-              <p class="cv-place">ISMB/ECCB 2023</p>
+              <h3>1st Place — Time-Series Exploration with Deep Learning Hackathon</h3>
+              <p class="cv-place">Milan, September 2024</p>
             </div>
           </div>
           <div class="cv-entry">
-            <div class="cv-entry-meta"><span class="cv-year">2020</span></div>
+            <div class="cv-entry-meta"><span class="cv-year">2021</span></div>
             <div class="cv-entry-body">
-              <h3>Ph.D. Fellowship</h3>
-              <p class="cv-place">Funding body / Ministry of Research</p>
+              <h3>Best Project Award — Bioinformatics Hackathon (Protein Edition)</h3>
+              <p class="cv-place">Copenhagen, July 2021</p>
             </div>
           </div>
         </div>
@@ -133,22 +198,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <hr class="divider" />
 
-      <!-- Talks -->
+      <!-- Teaching -->
       <div class="cv-section">
-        <h2 class="cv-section-title">Talks & Conferences</h2>
+        <h2 class="cv-section-title">Teaching & Mentoring</h2>
         <div class="cv-entries">
           <div class="cv-entry">
-            <div class="cv-entry-meta"><span class="cv-year">2024</span></div>
+            <div class="cv-entry-meta"><span class="cv-year">2025–2026</span></div>
             <div class="cv-entry-body">
-              <h3>ISMB 2024 — Oral presentation</h3>
-              <p class="cv-place">"Scalable pseudotime estimation with graph diffusion"</p>
+              <h3>Master's thesis co-supervision (×2)</h3>
+              <p class="cv-place">Bioinformatics for Computational Genomics, Milan</p>
             </div>
           </div>
           <div class="cv-entry">
-            <div class="cv-entry-meta"><span class="cv-year">2023</span></div>
+            <div class="cv-entry-meta"><span class="cv-year">2020–2021</span></div>
             <div class="cv-entry-body">
-              <h3>Single Cell Genomics 2023 — Poster</h3>
-              <p class="cv-place">"Multi-omics integration via joint embedding"</p>
+              <h3>Introduction to Computational Biology — Seminar</h3>
+              <p class="cv-place">Molecular pharmacology & immunology, University of Milan</p>
             </div>
           </div>
         </div>
@@ -166,22 +231,43 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   flex-wrap: wrap;
   gap: 1.5rem;
 }
+.cv-subtitle { font-size: 1rem; color: var(--text-muted); }
+.cv-contact { font-size: 0.82rem; color: var(--text-muted); }
+.cv-contact a { color: var(--accent-dim); }
+.cv-contact a:hover { color: var(--accent); }
+.cv-actions { display: flex; gap: 0.75rem; flex-shrink: 0; }
+
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4em;
-  padding: 0.6em 1.4em;
+  padding: 0.55em 1.2em;
   border-radius: 6px;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   font-weight: 500;
   transition: all 0.2s;
 }
-.btn-primary {
-  background: var(--accent);
-  color: #fff;
-}
+.btn-primary { background: var(--accent); color: #fff; }
 .btn-primary:hover { background: var(--accent-dim); color: #fff; }
+.btn-ghost { border: 1px solid var(--border); color: var(--text-muted); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
+/* PDF iframe */
+.pdf-viewer {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-subtle);
+}
+.cv-iframe {
+  width: 100%;
+  height: 75vh;
+  min-height: 480px;
+  border: none;
+  display: block;
+}
+
+/* Sections */
 .cv-section { margin-bottom: 0; }
 .cv-section-title {
   font-size: 0.72rem;
@@ -190,13 +276,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
-.cv-entries { display: flex; flex-direction: column; gap: 0; }
+.cv-entries { display: flex; flex-direction: column; }
 .cv-entry {
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 110px 1fr;
   gap: 1.5rem;
   padding: 1.25rem 0;
   border-bottom: 1px solid var(--border);
@@ -210,31 +296,43 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   padding-top: 0.2rem;
   white-space: nowrap;
 }
-
 .cv-entry-body h3 {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
   font-family: var(--font-sans);
   color: var(--text);
 }
-.cv-place {
+.cv-place { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.1rem; font-style: italic; }
+.cv-desc { font-size: 0.85rem; }
+
+.cv-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.cv-bullets li {
   font-size: 0.85rem;
   color: var(--text-muted);
-  margin-top: 0.1rem;
+  padding-left: 1em;
+  position: relative;
 }
-.cv-desc { font-size: 0.85rem; }
-.cv-desc em { font-style: italic; }
+.cv-bullets li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
 
-.skills-grid { display: flex; flex-direction: column; gap: 1.5rem; }
-.skill-group-title {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 0.5rem;
-}
+.pub-text { font-size: 0.88rem; line-height: 1.6; }
+.pub-text em { font-style: italic; }
+
+.skills-grid { display: flex; flex-direction: column; gap: 1.25rem; }
+.skill-group-title { font-size: 0.8rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; }
 .tags-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
 @media (max-width: 500px) {
-  .cv-entry { grid-template-columns: 1fr; gap: 0.25rem; }
+  .cv-entry { grid-template-columns: 1fr; gap: 0.2rem; }
+  .cv-year { font-size: 0.72rem; padding-top: 0; }
 }
 </style>
